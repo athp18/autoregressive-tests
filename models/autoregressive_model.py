@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 np.random.seed(42)
 
 def generate_synthetic_data(n_points=500, noise_level=0.1):
+    """
+    Function to generate synthetic time series data. It has sinusoidal components with added Gaussian noise.
+    Args:
+    n_points: Number of data points to generate
+    noise_level: The standard deviation of the Gaussian noise to be added to the signal
+    """
     t = np.linspace(0, 10, n_points)
     signal = (np.sin(2 * np.pi * t) + 
               0.5 * np.sin(4 * np.pi * t + np.pi/4) + 
@@ -15,6 +21,10 @@ def generate_synthetic_data(n_points=500, noise_level=0.1):
 
 class AutoregressiveModel:
     def __init__(self, data, lags):
+        """
+        Linear autoregressive model
+        
+        """
         self.data = data
         self.lags = lags
         self.coefficients = None

@@ -1,4 +1,4 @@
-Playing around with autoregressive model
+Playing around with AR models
 
 - [X] Linear autoregressive model
 - [X] Moving average model

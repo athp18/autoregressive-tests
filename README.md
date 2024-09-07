@@ -5,4 +5,4 @@ Playing around with autoregressive model
 - [X] Vector autoregressive model 
 - [X] ARMA  
 - [X] ARIMA
-- [ ] SARIMA 
+- [X] SARIMA 

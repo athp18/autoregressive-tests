@@ -114,7 +114,7 @@ def plot_final_results(data, fitted_values, future_time, predicted_data, optimal
     plt.show()
 
 def main(future_steps=50):
-    synthetic_data = generate_synthetic_calcium_traces()
+    synthetic_data = generate_synthetic_data()
     plot_synthetic_data(synthetic_data)
 
     models, aic_values = fit_models_and_calculate_aic(synthetic_data)

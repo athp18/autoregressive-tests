@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
+from utils import generate_multivariate_synthetic_data
 
 class VARModel:
     def __init__(self, data, lags):
@@ -65,19 +66,6 @@ class VARModel:
             history = np.vstack([history[1:], next_val])
         
         return np.array(predictions)
-
-def generate_multivariate_synthetic_data(n_points=500, noise_level=0.1):
-    """
-    Function to generate multivariate synthetic time series data.
-    """
-    t = np.linspace(0, 10, n_points)
-    signal1 = np.sin(2 * np.pi * t) + 0.5 * np.sin(4 * np.pi * t + np.pi/4)
-    signal2 = np.cos(2 * np.pi * t) + 0.5 * np.cos(4 * np.pi * t + np.pi/4)
-    signal1 /= np.max(np.abs(signal1))
-    signal2 /= np.max(np.abs(signal2))
-    noise1 = np.random.normal(0, noise_level, n_points)
-    noise2 = np.random.normal(0, noise_level, n_points)
-    return np.column_stack([signal1 + noise1, signal2 + noise2])
 
 def plot_multivariate_data(data, title):
     plt.figure(figsize=(12, 6))

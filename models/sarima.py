@@ -1,19 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
-
-def generate_synthetic_data(n_points=500, noise_level=0.1, seasonal_period=12):
-    np.random.seed(42)
-    t = np.linspace(0, 10, n_points)
-    trend = 0.1 * t
-    seasonal = 0.5 * np.sin(2 * np.pi * t / seasonal_period)
-    signal = (np.sin(2 * np.pi * t) + 
-              0.5 * np.sin(4 * np.pi * t + np.pi/4) + 
-              0.2 * np.sin(8 * np.pi * t + np.pi/2))
-    signal = (signal + trend + seasonal) / np.max(np.abs(signal + trend + seasonal))
-    noise = np.random.normal(0, noise_level, n_points)
-    synthetic_data = signal + noise
-    return t, synthetic_data
+from utils import generate_synthetic_data
 
 class SARIMAModel:
     def __init__(self, data, order, seasonal_order, seasonal_period):
